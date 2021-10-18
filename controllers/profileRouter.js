@@ -154,7 +154,7 @@ router.get('/', (req, res) => {
 router.get('/:username', (req, res) => {
     let username = req.params.username
     let id = req.params.id
-    Profile.find({username: username})
+    Profile.findOne({username: username})
     .then((profs) => {
         res.send(profs)
         console.log(profs)
@@ -168,6 +168,7 @@ router.get('/profile/:name', (req, res) => {
     Profile.find({name: name})
     .then((userInfo) => {
         res.send(userInfo)
+        console.log(userInfo)
     }) 
 })
 
